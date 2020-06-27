@@ -1,0 +1,8 @@
+/* 
+:host::ng-deep .progress{
+    background-color: unset !important;
+  }
+  
+  :host::ng-deep mat-seek-progress-control{
+    width: 100%;
+  } */

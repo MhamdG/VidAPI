@@ -1,0 +1,46 @@
+<div class="list row">
+
+    <div class="col-md-4">
+        <div class="input-group">
+            <h4>Videos List</h4>
+            <a routerLink="/add" class="ml-auto">Add</a>
+
+        </div>
+
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let video of videos; let i = index" [class.active]="i == currentIndex" (click)="setActiveVideo(video, i)">
+                {{ video.name }}
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-md-8">
+        <div *ngIf="currentVideo">
+            <h4>Videos</h4>
+            <div>
+                <label><strong>Name:</strong></label> {{ currentVideo.name }}
+            </div>
+            <!-- <div>
+                <label><strong>location:</strong></label> {{ currentVideo.location }}
+            </div> -->
+
+            <!-- <video id="video" width="480" src="http://restupload.test/{{ currentVideo.location }}" controls>
+                    Your browser does not support HTML5 video.
+                </video> -->
+
+            <!-- <mat-video src="http://restupload.test/{{ currentVideo.location }}"></mat-video> -->
+            <mat-video src="http://ec2-18-191-226-104.us-east-2.compute.amazonaws.com/uploads/{{ currentVideo.src }}" [autoplay]="false" [preload]="false" [fullscreen]="false" [download]="false" color="primary" spinner="spin">
+                <!-- <source matVideoSource src="https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4" type="video/mp4"> -->
+                <!-- <source src="http://restupload.test/{{ currentVideo.location }}" type="video/webm"> -->
+            </mat-video>
+
+
+
+        </div>
+
+        <div *ngIf="!currentVideo">
+            <br />
+            <p>Please click on a Video...</p>
+        </div>
+    </div>
+</div>

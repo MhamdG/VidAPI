@@ -1,0 +1,18 @@
+<div class="submit-form">
+    <div *ngIf="!submitted">
+
+
+        <div class="form-group">
+            <label for="Files">Files</label>
+            <input type="file" class="form-control-file" id="Files" required (change)="selectFile($event)" name="Files" />
+        </div>
+
+        <!-- <button (click)="selectFile($event)" class="btn btn-success">Submit</button> -->
+    </div>
+
+    <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newVideo()">Add</button>
+        <a routerLink="/video" class="btn btn-success">Videos</a>
+    </div>
+</div>
